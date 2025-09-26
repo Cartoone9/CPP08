@@ -6,7 +6,7 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 17:43:14 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/26 18:34:41 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/26 18:35:52 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <vector>
 #include <list>
 #include <deque>
+
 #include "colors.hpp"
 #include "easyfind.tpp"
 
