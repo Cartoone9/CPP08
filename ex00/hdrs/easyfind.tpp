@@ -6,7 +6,7 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 17:03:05 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/26 17:40:35 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/26 18:33:38 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,32 @@
 #define EASYFIND_TPP
 
 #include <algorithm>
+#include <cstdlib>
 #include <exception>
+#include <sstream>
 
-class NotFoundException : public std::exception
+class NotFoundContException : public std::exception
 {
-	virtual const char* what() const throw()
-	{
-		return ("Value not found in container.");
-	}
+	public:
+		// constructors - destructor
+		NotFoundContException(int value)
+			: _value(value)
+		{
+			std::ostringstream os;
+			os << _value << " not found.";
+			_msg = os.str();
+		}
+		virtual ~NotFoundContException() throw() {}
+
+		// method
+		virtual const char* what() const throw()
+		{
+			return (_msg.c_str());
+		}
+
+	private:
+		std::string	_msg;
+		int			_value;
 };
 
 template <typename T>
@@ -33,7 +51,7 @@ typename T::iterator	easyfind(T& container, int value)
 	typename T::iterator it = std::find(it_begin, it_end, value);
 
 	if (it == it_end)
-		throw (NotFoundException());
+		throw (NotFoundContException(value));
 	else
 		return (it);
 }

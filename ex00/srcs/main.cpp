@@ -6,7 +6,7 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 17:43:14 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/26 18:01:42 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/26 18:33:53 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,24 @@ void	populateContainer(T& container, int *array, int ar_size)
 		container.push_back(array[i]);
 }
 
+template <typename T>
+void	testFind(T& container, int value, const std::string& name)
+{
+	try
+	{
+		typename T::iterator it = easyfind(container, value);
+		std::cout << "Value found in " << name << ": " << *it << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << RED "Error in " << name << ": " RESET << e.what() << std::endl;
+	}
+}
+
 int	main(void)
 {
+	std::cout << REVERSED TEAL "--- SUCCESSFUL TESTS ---\n" RESET << std::endl;
+
 	int	arr1[] = {1, 9, 2, 8, 3, 7, 42};
 	std::vector<int> v_vect;
 	populateContainer(v_vect, arr1, sizeof(arr1) / sizeof(arr1[0]));
@@ -39,36 +55,15 @@ int	main(void)
 	std::deque<int> v_deq;
 	populateContainer(v_deq, arr3, sizeof(arr3) / sizeof(arr3[0]));
 
-	try
-	{
-		std::vector<int>::iterator it_v = easyfind(v_vect, 42);
-		std::cout << "Value found in vector: " << *it_v << std::endl;
+	testFind(v_vect, 42, "vector");
+	testFind(v_list, 42, "list");
+	testFind(v_deq, 42, "deque");
 
-		std::list<int>::iterator it_l = easyfind(v_list, 42);
-		std::cout << "Value found in list: " << *it_l << std::endl;
+	std::cout << REVERSED RED "\n--- FAILURE TESTS ---\n" RESET << std::endl;
 
-		std::deque<int>::iterator it_d = easyfind(v_deq, 42);
-		std::cout << "Value found in deque: " << *it_d << std::endl;
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << RED "Error: " RESET;
-		std::cout << e.what() << std::endl;
-	}
-
-	try
-	{
-		std::list<int>::iterator it_v = easyfind(v_list, -42);
-		std::cout << "Value found in vector: " << *it_v << std::endl;
-
-		std::deque<int>::iterator it_d = easyfind(v_deq, -42);
-		std::cout << "Value found in deque: " << *it_d << std::endl;
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << RED "Error: " RESET;
-		std::cout << e.what() << std::endl;
-	}
+	testFind(v_vect, 1234, "vector");
+	testFind(v_list, 1234, "list");
+	testFind(v_deq, 1234, "deque");
 
 	return (0);
 }
