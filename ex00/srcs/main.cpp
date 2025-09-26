@@ -6,7 +6,7 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 17:43:14 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/26 18:33:53 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/26 18:34:41 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,16 @@ int	main(void)
 {
 	std::cout << REVERSED TEAL "--- SUCCESSFUL TESTS ---\n" RESET << std::endl;
 
-	int	arr1[] = {1, 9, 2, 8, 3, 7, 42};
 	std::vector<int> v_vect;
+	int	arr1[] = {1, 9, 2, 8, 3, 7, 42};
 	populateContainer(v_vect, arr1, sizeof(arr1) / sizeof(arr1[0]));
 
-	int	arr2[] = {-12, 12, 42, -42};
 	std::list<int> v_list;
+	int	arr2[] = {-12, 12, 42, -42};
 	populateContainer(v_list, arr2, sizeof(arr2) / sizeof(arr2[0]));
 
-	int	arr3[] = {42, 1, 2, 3, 123};
 	std::deque<int> v_deq;
+	int	arr3[] = {42, 1, 2, 3, 123};
 	populateContainer(v_deq, arr3, sizeof(arr3) / sizeof(arr3[0]));
 
 	testFind(v_vect, 42, "vector");
