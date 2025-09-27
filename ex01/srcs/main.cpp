@@ -6,7 +6,7 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 17:43:14 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/27 23:23:19 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/27 23:27:54 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ int	main(int ac, char** av)
 
 	std::cout << TEAL "Shortest" RESET << " span: "
 		<< big_sp.shortestSpan() << std::endl;
-
 	std::cout << ORANGE "Longest" RESET << " span: "
 		<< big_sp.longestSpan() << std::endl;
 
