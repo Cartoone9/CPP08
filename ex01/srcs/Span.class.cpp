@@ -6,10 +6,11 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 17:03:41 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/27 22:44:24 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/27 23:22:55 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "colors.hpp"
 #include "Span.class.hpp"
 
 // ----------------------------------------
@@ -95,7 +96,8 @@ void	Span::addNumber(int value)
 		throw (FullArrayException());
 
 	std::cout << "Value (" << value 
-		<< ") has been stored in array at pos " << _stored << std::endl;
+		<< ") has been stored in array at index [" 
+		<< _stored << "]" << std::endl;
 	
 	_array[_stored] = value;
 	_stored++;
@@ -165,6 +167,20 @@ int		Span::longestSpan() const
 		return (INT_MAX);
 	else
 		return (static_cast<int>(ret));
+}
+
+void	Span::printSpan() const
+{
+	std::cout << UNDERLINE "Span values:" RESET << std::endl;
+
+	for (std::size_t i = 0; i < _stored; i++)
+	{
+		std::cout << _array[i];
+		if (i + 1 < _stored)
+			std::cout << ", ";
+		else
+			std::cout << std::endl;
+	}
 }
 
 // methods --------------------------------
