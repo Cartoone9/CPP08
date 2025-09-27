@@ -6,7 +6,7 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 17:43:14 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/27 23:27:54 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/27 23:41:12 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ void	addTryTest(Span& sp, int value)
 
 int	main(int ac, char** av)
 {
-	if (ac != 2 && ac != 3)
-	{
-		std::cerr << RED "Error: " RESET;
-		std::cerr << "./span seed_value [print_array]" << std::endl;
-		return (1);
-	}
+	// if (ac != 2 && ac != 3)
+	// {
+	// 	std::cerr << RED "Error: " RESET;
+	// 	std::cerr << "./span seed_value [print_array]" << std::endl;
+	// 	return (1);
+	// }
 
 	Span empty_sp = Span();
 	Span sp = Span(5);
@@ -79,6 +79,12 @@ int	main(int ac, char** av)
 
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
+
+	if (ac == 1)
+	{
+		std::cout << std::endl;
+		return (0);
+	}
 
 
 	// ----------------------------------------------------------
