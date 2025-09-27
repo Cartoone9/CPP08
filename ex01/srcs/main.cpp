@@ -6,7 +6,7 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 17:43:14 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/27 23:41:12 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/27 23:42:15 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,10 @@ int	main(int ac, char** av)
 	std::cout << REVERSED "\n--- BIG ARRAY TEST ---\n" RESET << std::endl;
 
 	std::srand(std::strtol(av[1], NULL, 10));
-	int	array[BIG_ARR];
 
+	int			array[BIG_ARR];
 	std::size_t	i = 0;
+
 	while (i < BIG_ARR)
 	{
 		array[i] = std::rand();
