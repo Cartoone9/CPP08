@@ -6,7 +6,7 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 17:43:14 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/27 17:31:13 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/27 17:35:27 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	addTryTest(Span& sp, int value)
 
 int	main(void)
 {
+	Span empty_sp = Span();
 	Span sp = Span(5);
 
 	std::cout << std::endl;
@@ -42,6 +43,7 @@ int	main(void)
 	addTryTest(sp, 11);
 
 	addTryTest(sp, 42); // out of bound
+	addTryTest(empty_sp, 42); // empty array
 
 	// std::cout << sp.shortestSpan() << std::endl;
 
