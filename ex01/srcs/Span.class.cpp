@@ -6,7 +6,7 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 17:03:41 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/27 17:56:16 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/27 18:13:13 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,22 @@ int		Span::shortestSpan() const
 	if (_stored == 1)
 		throw (SingleArrayException());
 
-	// TODO
-	return (0);
+	std::sort(_array, &_array[_stored]);
+
+	long long	short_span = _array[1] - _array[0];
+	long long	curr_span;
+
+	for (unsigned int i = 1; i < _stored - 1; i++)
+	{
+		curr_span = _array[i + 1] - _array[i];
+		if (curr_span < short_span)
+			short_span = curr_span;
+	}
+
+	if (short_span > INT_MAX)
+		return (INT_MAX);
+	else
+		return (static_cast<int>(short_span));
 }
 
 int		Span::longestSpan() const
@@ -122,18 +136,20 @@ int		Span::longestSpan() const
 	int	smallest = _array[0];
 	int	biggest = _array[0];
 
-	for (unsigned int i = 0; i < _stored; i++)
+	for (unsigned int i = 1; i < _stored; i++)
 	{
 		if (_array[i] < smallest)
 			smallest = _array[i];
-	}
-	for (unsigned int i = 0; i < _stored; i++)
-	{
 		if (_array[i] > biggest)
 			biggest = _array[i];
 	}
+	
+	long long ret = static_cast<long long>(biggest - smallest);
 
-	return (biggest - smallest);
+	if (ret > INT_MAX)
+		return (INT_MAX);
+	else
+		return (static_cast<int>(ret));
 }
 
 // methods --------------------------------

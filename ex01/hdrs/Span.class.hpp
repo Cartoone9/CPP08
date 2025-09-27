@@ -6,15 +6,17 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 17:01:26 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/27 17:48:11 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/27 18:14:32 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_CLASS_HPP
 #define SPAN_CLASS_HPP
 
+#include <algorithm>
 #include <exception>
 #include <iostream>
+#include <climits>
 
 class Span
 {
@@ -28,6 +30,7 @@ class Span
 
 		// methods
 		void	addNumber(int value);
+		// void	addMultipleNumbers(); // TODO
 		int		shortestSpan() const;
 		int		longestSpan() const;
 
