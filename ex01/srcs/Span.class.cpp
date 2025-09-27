@@ -6,7 +6,7 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 17:03:41 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/27 17:53:11 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/27 17:56:16 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ int		Span::shortestSpan() const
 		throw (SingleArrayException());
 
 	// TODO
+	return (0);
 }
 
 int		Span::longestSpan() const
@@ -121,12 +122,12 @@ int		Span::longestSpan() const
 	int	smallest = _array[0];
 	int	biggest = _array[0];
 
-	for (int i = 0; i < _stored; i++)
+	for (unsigned int i = 0; i < _stored; i++)
 	{
 		if (_array[i] < smallest)
 			smallest = _array[i];
 	}
-	for (int i = 0; i < _stored; i++)
+	for (unsigned int i = 0; i < _stored; i++)
 	{
 		if (_array[i] > biggest)
 			biggest = _array[i];
