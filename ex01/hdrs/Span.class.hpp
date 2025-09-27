@@ -6,7 +6,7 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 17:01:26 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/27 18:14:32 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/27 22:34:06 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Span
 
 		// methods
 		void	addNumber(int value);
-		// void	addMultipleNumbers(); // TODO
+		void	addNumber(int* begin, int* end);
 		int		shortestSpan() const;
 		int		longestSpan() const;
 

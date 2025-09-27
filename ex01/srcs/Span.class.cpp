@@ -6,7 +6,7 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 17:03:41 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/27 18:13:13 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/27 22:44:24 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,19 @@ void	Span::addNumber(int value)
 	_stored++;
 }
 
+void	Span::addNumber(int* begin, int* end)
+{
+	if (std::distance(begin, end) > _size - _stored)
+		throw (FullArrayException());
+
+	while (begin != end)
+	{
+		_array[_stored] = *begin;
+		_stored++;
+		begin++;
+	}
+}
+
 int		Span::shortestSpan() const
 {
 	if (_size == 0 || _stored == 0)
@@ -118,6 +131,8 @@ int		Span::shortestSpan() const
 		curr_span = _array[i + 1] - _array[i];
 		if (curr_span < short_span)
 			short_span = curr_span;
+		if (short_span == 0)
+			return (0);
 	}
 
 	if (short_span > INT_MAX)
