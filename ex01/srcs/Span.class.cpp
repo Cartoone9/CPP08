@@ -6,7 +6,7 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 17:03:41 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/27 23:22:55 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/28 13:54:23 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,14 +123,18 @@ int		Span::shortestSpan() const
 	if (_stored == 1)
 		throw (SingleArrayException());
 
-	std::sort(_array, &_array[_stored]);
+	int	copy_arr[_stored];
+	for (std::size_t i = 0; i < _stored; i++)
+		copy_arr[i] = this->_array[i];
 
-	long long	short_span = _array[1] - _array[0];
+	std::sort(copy_arr, &copy_arr[_stored]);
+
+	long long	short_span = copy_arr[1] - copy_arr[0];
 	long long	curr_span;
 
 	for (unsigned int i = 1; i < _stored - 1; i++)
 	{
-		curr_span = _array[i + 1] - _array[i];
+		curr_span = copy_arr[i + 1] - copy_arr[i];
 		if (curr_span < short_span)
 			short_span = curr_span;
 		if (short_span == 0)
@@ -169,13 +173,21 @@ int		Span::longestSpan() const
 		return (static_cast<int>(ret));
 }
 
-void	Span::printSpan() const
+void	Span::printSpan(bool sort) const
 {
 	std::cout << UNDERLINE "Span values:" RESET << std::endl;
 
+	int	copy_arr[_stored];
+	for (std::size_t i = 0; i < _stored; i++)
+		copy_arr[i] = this->_array[i];
+
+	if (sort == true)
+		std::sort(copy_arr, &copy_arr[_stored]);
+
 	for (std::size_t i = 0; i < _stored; i++)
 	{
-		std::cout << _array[i];
+		std::cout << copy_arr[i];
+
 		if (i + 1 < _stored)
 			std::cout << ", ";
 		else

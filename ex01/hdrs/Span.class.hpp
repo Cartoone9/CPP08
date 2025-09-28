@@ -6,7 +6,7 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 17:01:26 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/27 23:15:24 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/28 13:54:31 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Span
 		void	addNumber(int* begin, int* end);
 		int		shortestSpan() const;
 		int		longestSpan() const;
-		void	printSpan() const;
+		void	printSpan(bool sort) const;
 
 		// exceptions
 		class FullArrayException : public std::exception

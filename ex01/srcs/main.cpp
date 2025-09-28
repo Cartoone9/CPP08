@@ -6,7 +6,7 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 17:43:14 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/27 23:42:15 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/28 14:02:34 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	main(int ac, char** av)
 
 	while (i < BIG_ARR)
 	{
-		array[i] = std::rand();
+		array[i] = std::rand() % (BIG_ARR * 10);
 		i++;
 	}
 
@@ -116,7 +116,7 @@ int	main(int ac, char** av)
 
 	if (ac == 3)
 	{
-		big_sp.printSpan();
+		big_sp.printSpan(false);
 		std::cout << std::endl;
 	}
 
