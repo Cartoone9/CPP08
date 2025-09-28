@@ -6,19 +6,17 @@
 #    By: niroy <niroy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 22:11:33 by jramiro           #+#    #+#              #
-#    Updated: 2025/09/28 14:24:56 by jramiro          ###   ########.fr        #
+#    Updated: 2025/09/28 16:44:01 by jramiro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = mutant
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98
+CFLAGS = -Wall -Wextra -Werror -Wshadow -g3 -std=c++98
 INCS = -I./hdrs
 
 SRCS = srcs/main.cpp \
-	   \
-	   srcs/MutantStack.class.cpp \
 
 O_DIR = .objs
 OBJS = $(SRCS:%.cpp=$(O_DIR)/%.o)

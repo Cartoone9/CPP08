@@ -6,7 +6,7 @@
 /*   By: jramiro <jramiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 14:07:53 by jramiro           #+#    #+#             */
-/*   Updated: 2025/09/28 15:51:37 by jramiro          ###   ########.fr       */
+/*   Updated: 2025/09/28 16:35:08 by jramiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,13 @@ class MutantStack : public std::stack<T>
 		MutantStack& operator=(const MutantStack& old_obj);
 		~MutantStack();
 
-		// methods
-
-		// getters - setters
-
-		// exceptions
-
 		// iterators 
-		typedef typename std::stack<T>::container_type::iterator iterator;
-		typedef typename std::stack<T>::container_type::const_iterator const_iterator;
-		typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
-		typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
+		typedef typename std::stack<T>::container_type container;
+
+		typedef typename container::iterator iterator;
+		typedef typename container::const_iterator const_iterator;
+		typedef typename container::reverse_iterator reverse_iterator;
+		typedef typename container::const_reverse_iterator const_reverse_iterator;
 
 		iterator				begin();
 		const_iterator			begin() const;
@@ -59,20 +55,20 @@ class MutantStack : public std::stack<T>
 // ----------------------------------------
 // constructors / destructors -------------
 
-template <typename T>
+	template <typename T>
 MutantStack<T>::MutantStack()
 {
 	// std::cout << "MutantStack default constructor called" << std::endl;
 }
 
-template <typename T>
+	template <typename T>
 MutantStack<T>::MutantStack(const MutantStack<T>& old_obj)
 	: std::stack<T>(old_obj)
 {
 	// std::cout << "MutantStack copy constructor called" << std::endl;
 }
 
-template <typename T>
+	template <typename T>
 MutantStack<T>&	MutantStack<T>::operator=(const MutantStack<T>& old_obj)
 {
 	// std::cout << "MutantStack assignement operator called" << std::endl;
@@ -84,7 +80,7 @@ MutantStack<T>&	MutantStack<T>::operator=(const MutantStack<T>& old_obj)
 	return (*this);
 }
 
-template <typename T>
+	template <typename T>
 MutantStack<T>::~MutantStack()
 {
 	// std::cout << "MutantStack destructor called" << std::endl;
@@ -97,7 +93,7 @@ MutantStack<T>::~MutantStack()
 // ----------------------------------------
 // iterators ------------------------------
 
-template <typename T>
+	template <typename T>
 typename MutantStack<T>::iterator	MutantStack<T>::begin()
 {
 	return (this->c.begin());
@@ -109,7 +105,7 @@ typename MutantStack<T>::const_iterator	MutantStack<T>::begin() const
 	return (this->c.begin());
 }
 
-template <typename T>
+	template <typename T>
 typename MutantStack<T>::iterator	MutantStack<T>::end()
 {
 	return (this->c.end());
@@ -121,7 +117,7 @@ typename MutantStack<T>::const_iterator	MutantStack<T>::end() const
 	return (this->c.end());
 }
 
-template <typename T>
+	template <typename T>
 typename MutantStack<T>::reverse_iterator	MutantStack<T>::rbegin()
 {
 	return (this->c.rbegin());
@@ -133,7 +129,7 @@ typename MutantStack<T>::const_reverse_iterator	MutantStack<T>::rbegin() const
 	return (this->c.rbegin());
 }
 
-template <typename T>
+	template <typename T>
 typename MutantStack<T>::reverse_iterator	MutantStack<T>::rend()
 {
 	return (this->c.rend());
